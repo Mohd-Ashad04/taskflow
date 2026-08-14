@@ -1,5 +1,4 @@
 import express from 'express';
-import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createBoardRouter } from './routes/boardRoutes.js';
 import { createTaskRouter } from './routes/taskRoutes.js';
@@ -15,12 +14,12 @@ export function createApp({ boardService, taskService }) {
     next(new NotFoundError('Route not found.'));
   });
 
-  const clientDist = join(dirname(fileURLToPath(import.meta.url)), '../../client/dist');
+  const clientDist = fileURLToPath(new URL('../../client/dist/', import.meta.url));
   app.use(express.static(clientDist));
 
   app.use((request, response, next) => {
     if (request.method === 'GET') {
-      response.sendFile(join(clientDist, 'index.html'));
+      response.sendFile(fileURLToPath(new URL('../../client/dist/index.html', import.meta.url)));
     } else {
       next();
     }
