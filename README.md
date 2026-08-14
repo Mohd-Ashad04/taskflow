@@ -994,19 +994,6 @@ SQLite
 
 **https://taskflow-e5i9.onrender.com/api/boards/1**
 
----
-
-<div align="center">
-
-### TaskFlow
-
-**Built as a focused full-stack take-home assignment.**
-
-[Live Demo](https://taskflow-e5i9.onrender.com/) · [Source Code](https://github.com/Mohd-Ashad04/taskflow)
-
-</div>
----
-
 <div align="center">
 
 ## Built by Mohd Ashad
