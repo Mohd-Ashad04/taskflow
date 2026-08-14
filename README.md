@@ -2,207 +2,227 @@
 
 # TaskFlow
 
-### A production-minded full-stack task board built for the TaskFlow assignment.
+### A lightweight full-stack task management board built as a take-home assignment.
 
-**React · Node.js · Express · SQLite · REST API · Native Drag & Drop**
-
-<br />
-
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-TaskFlow-205742?style=for-the-badge&logo=render&logoColor=white)](https://taskflow-e5i9.onrender.com/)
-[![Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/Mohd-Ashad04/taskflow)
-[![Tests](https://img.shields.io/badge/Backend%20Tests-13%2F13%20Passing-2ea44f?style=for-the-badge)](https://github.com/Mohd-Ashad04/taskflow)
-[![License](https://img.shields.io/badge/License-ISC-blue?style=for-the-badge)](LICENSE)
+**React · Vite · Node.js · Express · SQLite · REST API · Native Drag & Drop**
 
 <br />
 
-**[Open the Live Application →](https://taskflow-e5i9.onrender.com/)**
+<a href="https://taskflow-e5i9.onrender.com/">
+  <img src="https://img.shields.io/badge/%E2%96%B6%20LIVE%20DEMO-TaskFlow-205742?style=for-the-badge" alt="Live Demo" />
+</a>
+&nbsp;
+<a href="https://github.com/Mohd-Ashad04/taskflow">
+  <img src="https://img.shields.io/badge/GitHub-Source%20Code-181717?style=for-the-badge&logo=github" alt="GitHub Repository" />
+</a>
+&nbsp;
+<img src="https://img.shields.io/badge/Backend%20Tests-13%2F13%20Passing-2ea44f?style=for-the-badge" alt="Backend Tests" />
+
+<br />
+<br />
+
+**[Open the live application →](https://taskflow-e5i9.onrender.com/)**
 
 </div>
 
 ---
 
-## What is TaskFlow?
+## What I Built
 
-TaskFlow is a lightweight task-management board designed around the core workflow of a small team:
-
-**Create → Organize → Prioritize → Move → Complete**
-
-The application provides a persistent board with columns and tasks, backed by a real relational SQLite database and a REST API.
-
-The implementation intentionally focuses on the fundamentals that matter in a real full-stack application:
-
-- reliable CRUD operations
-- server-side validation
-- relational database integrity
-- clear separation of responsibilities
-- persistence across page reloads
-- controlled API errors
-- accessible task movement fallback
-- automated backend testing
-- production-style frontend serving
-
-The project deliberately avoids unnecessary product complexity such as authentication, multi-user collaboration, file uploads, or realtime synchronization because those features were explicitly outside the assignment scope.
-
----
-
-## Live Demo
-
-<table>
-<tr>
-<td><strong>Application</strong></td>
-<td><a href="https://taskflow-e5i9.onrender.com/">https://taskflow-e5i9.onrender.com/</a></td>
-</tr>
-<tr>
-<td><strong>Board API</strong></td>
-<td><a href="https://taskflow-e5i9.onrender.com/api/boards/1">GET /api/boards/1</a></td>
-</tr>
-<tr>
-<td><strong>Source Code</strong></td>
-<td><a href="https://github.com/Mohd-Ashad04/taskflow">github.com/Mohd-Ashad04/taskflow</a></td>
-</tr>
-</table>
-
-> The live application is deployed as a single Node.js/Express service that serves both the compiled React frontend and REST API.
-
----
-
-## Product Overview
+TaskFlow is a small full-stack task management application designed around a simple workflow:
 
 ```text
-                         TASKFLOW
-                            │
-             ┌──────────────┴──────────────┐
-             │                             │
-        Task Management               Board Management
-             │                             │
-     ┌───────┼────────┐                    │
-     │       │        │                    │
-   Create   Edit    Delete             Rename Board
-     │       │        │
-     └───────┼────────┘
-             │
-      ┌──────┴──────┐
-      │             │
-   Priority      Movement
-   Filtering     ┌───────┐
-                 │       │
-              Dropdown  Drag & Drop
+Create → Prioritize → Organize → Move → Complete
+```
+
+The application provides a persistent task board where users can:
+
+- Create tasks
+- Edit tasks
+- Delete tasks
+- Assign priorities
+- Filter by priority
+- Move tasks between columns
+- Drag and drop tasks
+- Rename the board
+- Refresh the page without losing persisted data
+
+The application is backed by a real SQLite database and a REST API rather than browser-only state.
+
+### The important part
+
+I intentionally kept the implementation within the assignment's scope instead of adding unrelated features.
+
+The project focuses on:
+
+> **Correctness → Database integrity → Validation → Error handling → Testability → Maintainability**
+
+---
+
+# Live Demo
+
+| | |
+|---|---|
+| **Application** | **[https://taskflow-e5i9.onrender.com/](https://taskflow-e5i9.onrender.com/)** |
+| **Live API** | **[https://taskflow-e5i9.onrender.com/api/boards/1](https://taskflow-e5i9.onrender.com/api/boards/1)** |
+| **GitHub** | **[https://github.com/Mohd-Ashad04/taskflow](https://github.com/Mohd-Ashad04/taskflow)** |
+
+The production deployment uses a single Node.js/Express service to serve both:
+
+```text
+React SPA
+   +
+REST API
+   +
+SQLite persistence
 ```
 
 ---
 
-# Features
+# Feature Overview
 
-| Capability | Implementation |
-|---|---|
-| Board | Persistent board with multiple columns |
-| Create Task | Required title, optional description and priority |
-| Edit Task | Update title, description and priority |
-| Delete Task | Persistent deletion through the API |
-| Move Task | Dropdown fallback + native HTML5 drag-and-drop |
-| Priority Filter | Filter visible tasks by Low / Medium / High |
-| Board Rename | Persisted board-name update through REST API |
-| Validation | Zod validation on the backend |
-| Error Handling | Structured API errors + visible UI feedback |
-| Database | SQLite with foreign-key enforcement |
-| Testing | 13 backend tests |
-| Production Serving | Express serves API + compiled React SPA |
-| Responsive UI | Board adapts to smaller screens |
+| Feature | Status |
+|---|:---:|
+| Board with columns and tasks | ✅ |
+| Create task | ✅ |
+| Edit task | ✅ |
+| Delete task | ✅ |
+| Task priority | ✅ |
+| Priority filtering | ✅ |
+| Move task | ✅ |
+| Board rename | ✅ |
+| Persistent SQLite storage | ✅ |
+| Backend validation | ✅ |
+| API error handling | ✅ |
+| Frontend error feedback | ✅ |
+| Responsive UI | ✅ |
+| Native drag-and-drop | ✅ |
+| Production deployment | ✅ |
+| Automated backend tests | ✅ |
 
 ---
 
-# Core Workflow
+# Assignment Scope
 
-### 1. Create
+The assignment explicitly prioritizes a **working core over feature volume**.
 
-Create a task with:
+TaskFlow follows that principle.
 
-- title
-- description
-- priority
-- destination column
+### Core functionality
 
-The backend rejects empty or whitespace-only titles.
+```text
+Board
+ ├── Columns
+ │    └── Tasks
+ │         ├── Create
+ │         ├── Edit
+ │         ├── Delete
+ │         ├── Priority
+ │         └── Move
+ │
+ └── Board Rename
+```
 
-### 2. Organize
+### Selected stretch goal
 
-Tasks can be moved between:
+The assignment allows **at most one** stretch goal.
 
-- To Do
-- In Progress
-- Done
+I selected:
 
-Movement is persisted to SQLite.
+> **Native HTML5 drag-and-drop**
 
-### 3. Prioritize
+I deliberately did **not** implement task-title search or task-count display as user-facing stretch goals.
 
-Use the priority filter to focus the board on:
+The standard movement dropdown remains available as an accessible fallback.
 
-- High
-- Medium
-- Low
+---
 
-### 4. Edit
+# How It Works
 
-Existing tasks can be updated without recreating them.
+```mermaid
+flowchart LR
+    A["React UI"] --> B["API Layer"]
+    B --> C["Express Routes"]
+    C --> D["Service Layer"]
+    D --> E["Repository Layer"]
+    E --> F[("SQLite")]
 
-### 5. Complete
+    D --> G["Zod Validation"]
+```
 
-Move tasks into the Done column using either:
+A typical task mutation follows:
 
-- native drag-and-drop
-- accessible dropdown control
+```text
+User Action
+    ↓
+React Component
+    ↓
+API Request
+    ↓
+Express Route
+    ↓
+Service
+    ↓
+Validation / Business Rules
+    ↓
+Repository
+    ↓
+SQLite
+    ↓
+API Response
+    ↓
+UI Update
+```
 
-The dropdown remains intentionally available as a fallback rather than making drag-and-drop the only way to move a task.
+This keeps HTTP handling, business logic, persistence, and presentation concerns separate.
 
 ---
 
 # Architecture
 
-TaskFlow uses a small modular structure rather than introducing unnecessary framework complexity.
+TaskFlow uses a deliberately small modular architecture.
 
-```mermaid
-flowchart LR
-    UI["React UI"] --> API["API Layer"]
-    API --> ROUTES["Express Routes"]
-    ROUTES --> SERVICES["Service Layer"]
-    SERVICES --> REPOSITORIES["Repository Layer"]
-    REPOSITORIES --> DB[("SQLite")]
+It is not a large enterprise architecture for a small assignment.
 
-    SERVICES --> VALIDATION["Zod Validation"]
+The goal was to create enough separation that another developer can understand and modify the system without having to trace business logic through a single large file.
 
-    DB --> SCHEMA["Relational Schema"]
-```
+## Backend Responsibilities
 
-### Request flow
+### Routes
 
-```text
-Browser
-   │
-   ▼
-React Components
-   │
-   ▼
-API Functions
-   │
-   ▼
-Express Router
-   │
-   ▼
-Service Layer
-   │
-   ├── Validation
-   ├── Business Rules
-   └── Resource Checks
-   │
-   ▼
-Repository Layer
-   │
-   ▼
-SQLite
-```
+Responsible for:
 
-This keeps HTTP concerns, business logic, persistence, and UI concerns separated without introducing an unnecessarily large architecture.
+- HTTP methods
+- Route parameters
+- Request/response handling
+- Delegating work to services
+
+### Services
+
+Responsible for:
+
+- Validation
+- Business rules
+- Resource existence checks
+- Coordinating repository operations
+
+### Repositories
+
+Responsible for:
+
+- SQL
+- Database reads
+- Database writes
+- Database-specific operations
+
+### Database
+
+Responsible for:
+
+- Persistence
+- Relationships
+- Constraints
+- Referential integrity
 
 ---
 
@@ -216,6 +236,7 @@ taskflow/
 │   ├── src/
 │   │   ├── api/
 │   │   │   └── taskflowApi.js
+│   │   │
 │   │   ├── components/
 │   │   │   ├── BoardHeader.jsx
 │   │   │   ├── ConfirmDialog.jsx
@@ -224,15 +245,18 @@ taskflow/
 │   │   │   ├── TaskCard.jsx
 │   │   │   ├── TaskColumn.jsx
 │   │   │   └── TaskFormDialog.jsx
+│   │   │
 │   │   ├── hooks/
 │   │   │   └── useBoard.js
+│   │   │
 │   │   ├── styles/
 │   │   │   └── taskflow.css
+│   │   │
 │   │   ├── App.jsx
 │   │   ├── index.css
 │   │   └── main.jsx
-│   ├── package.json
-│   └── vite.config.js
+│   │
+│   └── package.json
 │
 ├── server/
 │   ├── src/
@@ -240,21 +264,27 @@ taskflow/
 │   │   │   ├── database.js
 │   │   │   ├── schema.sql
 │   │   │   └── seed.js
+│   │   │
 │   │   ├── repositories/
 │   │   │   ├── boardRepository.js
 │   │   │   └── taskRepository.js
+│   │   │
 │   │   ├── routes/
 │   │   │   ├── boardRoutes.js
 │   │   │   └── taskRoutes.js
+│   │   │
 │   │   ├── services/
 │   │   │   ├── boardService.js
 │   │   │   ├── errors.js
 │   │   │   └── taskService.js
+│   │   │
 │   │   ├── app.js
 │   │   └── server.js
+│   │
 │   ├── tests/
 │   │   ├── api.test.js
 │   │   └── taskRepository.test.js
+│   │
 │   └── package.json
 │
 ├── .gitignore
@@ -264,98 +294,75 @@ taskflow/
 
 ---
 
-# Technology Stack
-
-### Frontend
-
-- React
-- Vite
-- JavaScript
-- Native HTML5 Drag & Drop
-- CSS
-
-### Backend
-
-- Node.js
-- Express
-- REST API
-- Zod
-
-### Database
-
-- SQLite
-- better-sqlite3
-- Raw SQL
-- Foreign-key constraints
-
-### Testing
-
-- Node.js native test runner
-- Supertest
-- In-memory SQLite databases
-- ESLint
-- Vite production build
-
----
-
 # Database Design
 
-The application uses a relational model:
+The database follows the domain naturally:
 
-```text
-┌──────────────┐
-│    boards    │
-├──────────────┤
-│ id           │ PK
-│ name         │
-└──────┬───────┘
-       │
-       │ 1:N
-       ▼
-┌──────────────┐
-│   columns    │
-├──────────────┤
-│ id           │ PK
-│ board_id     │ FK
-│ name         │
-└──────┬───────┘
-       │
-       │ 1:N
-       ▼
-┌──────────────┐
-│    tasks     │
-├──────────────┤
-│ id           │ PK
-│ column_id    │ FK
-│ title        │ NOT NULL
-│ description  │
-│ priority     │
-│ created_at   │
-└──────────────┘
+```mermaid
+erDiagram
+    BOARDS ||--o{ COLUMNS : contains
+    COLUMNS ||--o{ TASKS : contains
+
+    BOARDS {
+        integer id PK
+        text name
+    }
+
+    COLUMNS {
+        integer id PK
+        integer board_id FK
+        text name
+    }
+
+    TASKS {
+        integer id PK
+        integer column_id FK
+        text title
+        text description
+        text priority
+        datetime created_at
+    }
 ```
 
-### Integrity rules
+## Relationships
+
+```text
+Board
+  │
+  ├── Column
+  │     ├── Task
+  │     ├── Task
+  │     └── Task
+  │
+  ├── Column
+  │     └── Task
+  │
+  └── Column
+        └── Task
+```
+
+## Integrity Rules
 
 The schema enforces:
 
-- primary keys on every table
-- foreign key `columns.board_id → boards.id`
-- foreign key `tasks.column_id → columns.id`
-- required task titles
-- required board names
-- controlled priority values
-- cascading deletes where appropriate
-- SQLite foreign-key enforcement
+- Primary keys
+- Foreign keys
+- Required fields
+- Controlled priority values
+- Referential integrity
+- Cascading deletes where applicable
+
+SQLite foreign-key enforcement is explicitly enabled when the database connection is initialized.
 
 ---
 
-# Database Queries
+# SQL Implementation
 
-The assignment specifically asked for queries beyond simple `SELECT *`.
+One of the assignment requirements was to demonstrate meaningful database querying rather than retrieving everything and filtering it in application code.
 
-TaskFlow includes dedicated repository-level SQL for operations such as task aggregation and priority filtering.
+TaskFlow performs the required operations directly in SQLite.
 
-## Task count per column
+## Query 1 — Task Count Per Column
 
 ```sql
 SELECT
@@ -370,9 +377,9 @@ GROUP BY columns.id, columns.name
 ORDER BY columns.id;
 ```
 
-This calculates task counts directly in the database rather than fetching every task and counting them in JavaScript.
+The aggregation is performed by the database.
 
-## Priority-filtered tasks
+## Query 2 — Priority-Filtered Tasks
 
 ```sql
 SELECT
@@ -390,13 +397,13 @@ WHERE columns.board_id = ?
 ORDER BY tasks.created_at DESC, tasks.id DESC;
 ```
 
-The filtering and ordering are performed by SQLite.
+Filtering and ordering are performed directly by SQLite.
+
+This avoids fetching unnecessary records and filtering the entire dataset in JavaScript.
 
 ---
 
-# API
-
-The backend exposes a small REST API.
+# REST API
 
 | Method | Endpoint | Purpose |
 |---|---|---|
@@ -408,7 +415,11 @@ The backend exposes a small REST API.
 | `PATCH` | `/api/tasks/:taskId/move` | Move a task |
 | `DELETE` | `/api/tasks/:taskId` | Delete a task |
 
-### Example
+---
+
+## Example API Request
+
+### Rename Board
 
 ```http
 PATCH /api/boards/1
@@ -419,26 +430,19 @@ Content-Type: application/json
 }
 ```
 
-Response:
+The updated name is persisted to SQLite.
 
-```json
-{
-  "board": {
-    "id": 1,
-    "name": "Product Launch"
-  }
-}
-```
+Refreshing the application retrieves the updated value from the database.
 
 ---
 
-# Validation & Error Handling
+# Validation
 
-Validation is performed on the backend rather than relying only on browser-side controls.
+Validation is performed on the backend using Zod.
 
-### Examples
+This means invalid requests cannot bypass application rules simply by calling the API directly.
 
-Invalid task:
+For example:
 
 ```json
 {
@@ -446,77 +450,104 @@ Invalid task:
 }
 ```
 
-→ `400 Bad Request`
+is rejected because the title contains no meaningful content.
 
-Non-existent resource:
+The same principle is applied to board names.
 
-```text
-GET /api/boards/9999
+---
+
+# Error Handling
+
+The API uses controlled error responses.
+
+| Scenario | HTTP Status |
+|---|---:|
+| Invalid request | `400` |
+| Resource not found | `404` |
+| Unexpected server error | `500` |
+
+Example:
+
+```json
+{
+  "error": {
+    "code": "NOT_FOUND",
+    "message": "Route not found."
+  }
+}
 ```
 
-→ `404 Not Found`
-
-Unexpected server failure:
-
-→ `500 Internal Server Error`
-
-The frontend converts failed API operations into visible feedback instead of exposing raw backend errors or leaving the UI in a broken state.
+The frontend also provides visible feedback when mutations fail instead of silently leaving the UI in an inconsistent state.
 
 ---
 
 # Testing
 
-The backend test suite covers both API behavior and database-level behavior.
+The backend is tested using isolated SQLite databases.
 
-### Current result
-
-```text
-13 / 13 backend tests passing
-0 client lint errors
-Production build successful
-```
-
-### Coverage includes
-
-- task creation validation
-- invalid task title rejection
-- task editing
-- task deletion
-- task movement
-- board rename
-- missing board handling
-- invalid board names
-- API error responses
-- repository-level SQL behavior
-- task counts / filtering against known SQLite data
-
-### Test isolation
-
-Repository tests use isolated in-memory SQLite databases:
+### Current Verification
 
 ```text
-Test
- │
- └── :memory: SQLite
-       │
-       ├── schema
-       └── test data
+Backend tests      13 / 13 PASS
+Client lint        PASS
+Production build   PASS
 ```
 
-This keeps tests deterministic and avoids depending on the development database.
+## Backend Tests
+
+The test suite covers:
+
+- Task creation
+- Task validation
+- Task editing
+- Task deletion
+- Task movement
+- Board rename
+- Missing resources
+- Invalid input
+- API error handling
+- Repository operations
+- SQL/database behavior
+
+## Test Isolation
+
+Repository tests use:
+
+```text
+SQLite :memory:
+```
+
+This prevents tests from depending on the development database.
+
+```text
+Test Case
+    │
+    ▼
+Fresh SQLite :memory:
+    │
+    ├── Schema
+    ├── Test Data
+    └── Operation
+    │
+    ▼
+Assertion
+    │
+    ▼
+Database discarded
+```
+
+This makes database tests isolated and repeatable.
 
 ---
 
-# Running Locally
+# Local Setup
+
+The project is designed to work from a clean clone without requiring a separately managed database.
 
 ## Requirements
 
-- Node.js 20+ recommended
+- Node.js 20+
 - npm
-
-No separately managed database server is required.
-
----
 
 ## 1. Clone
 
@@ -525,38 +556,33 @@ git clone https://github.com/Mohd-Ashad04/taskflow.git
 cd taskflow
 ```
 
----
-
-## 2. Install dependencies
+## 2. Install Dependencies
 
 ```bash
 npm ci --prefix server
 npm ci --prefix client
 ```
 
----
-
-## 3. Seed the database
+## 3. Seed the Database
 
 ```bash
 cd server
 node src/db/seed.js
 ```
 
-The seed script creates the initial board, columns, and sample tasks.
+The seed script creates the deterministic initial board, columns, and sample tasks.
 
 ---
 
-## 4. Run backend tests
+# Run the Tests
+
+From the `server` directory:
 
 ```bash
-cd server
 npm test
 ```
 
----
-
-## 5. Run frontend linting
+Then from the `client` directory:
 
 ```bash
 cd ../client
@@ -565,9 +591,11 @@ npm run lint
 
 ---
 
-## 6. Development mode
+# Development Mode
 
-### Terminal 1 — backend
+Run backend and frontend separately.
+
+### Terminal 1 — Backend
 
 ```bash
 cd server
@@ -580,7 +608,7 @@ Backend:
 http://localhost:3000
 ```
 
-### Terminal 2 — frontend
+### Terminal 2 — Frontend
 
 ```bash
 cd client
@@ -593,87 +621,78 @@ Frontend:
 http://localhost:5173
 ```
 
-During development, Vite proxies API requests to the Express backend.
+Vite handles the frontend development server while Express handles the REST API.
 
 ---
 
 # Production Mode
 
-The production build uses a single Express process.
+The production application uses a single Express process.
 
-### Build React
+## Build
 
 ```bash
 cd client
 npm run build
 ```
 
-### Start Express
+## Start
 
 ```bash
 cd ../server
 npm start
 ```
 
-Then open:
+Open:
 
 ```text
 http://localhost:3000
 ```
 
-Express serves:
+The Express server serves:
 
 ```text
 /api/*       → REST API
-/assets/*    → compiled React assets
+/assets/*    → Compiled React assets
 /            → React application
 ```
-
-This keeps the development Vite server separate from production serving.
 
 ---
 
 # Deployment
 
-TaskFlow is deployed as a Node.js web service.
+TaskFlow is deployed as a Render Web Service.
 
 ```text
-                Render
-                  │
-                  ▼
-          Node.js / Express
-             ┌────┴────┐
-             │         │
-          REST API   React SPA
-             │         │
-             └────┬────┘
-                  │
-               SQLite
+                    Render
+                      │
+                      ▼
+               Node.js / Express
+                  ┌────┴────┐
+                  │         │
+                  ▼         ▼
+              REST API   React SPA
+                  │         │
+                  └────┬────┘
+                       ▼
+                    SQLite
 ```
 
-### Production build
+The server uses:
 
-```bash
-npm ci --prefix server
-npm ci --prefix client
-npm run build --prefix client
+```javascript
+process.env.PORT
 ```
 
-### Production start
+so the hosting platform can provide the runtime port.
 
-```bash
-node server/src/db/seed.js && node server/src/server.js
-```
+### Live Application
 
-### Live application
+**https://taskflow-e5i9.onrender.com/**
 
-https://taskflow-e5i9.onrender.com/
+### Live API
 
-### Important deployment trade-off
-
-SQLite was intentionally selected because the assignment explicitly permits it and requires a real relational database without requiring a separately managed database server.
-
-For a larger production deployment requiring durable storage across infrastructure replacement, horizontal scaling, or multiple application instances, PostgreSQL or another managed relational database would be the natural next step.
+**https://taskflow-e5i9.onrender.com/api/boards/1**
 
 ---
 
@@ -681,112 +700,87 @@ For a larger production deployment requiring durable storage across infrastructu
 
 ## Why SQLite?
 
-The assignment explicitly allows SQLite.
+SQLite was selected because the assignment permits it and it requires no separately managed database server.
 
-It provides:
+This provides:
 
-- real relational persistence
-- foreign keys
-- transactions
-- SQL querying
-- zero external database setup
-- simple local development
+- Real relational persistence
+- Foreign keys
+- SQL queries
+- Constraints
+- Simple local setup
 
-This keeps the implementation focused on application engineering rather than infrastructure.
+For a larger production system with multiple application instances, higher concurrency, or managed backups, PostgreSQL would be a natural next step.
 
 ---
 
-## Why raw SQL instead of an ORM?
+## Why Raw SQL?
 
 The assignment specifically evaluates database design and SQL.
 
-Keeping SQL inside repositories makes the database operations explicit:
+For that reason, SQL is kept explicitly inside the repository layer rather than being hidden behind an ORM.
 
 ```text
 Service
-   │
-   ▼
+   ↓
 Repository
-   │
-   └── SQL
-        │
-        ▼
-      SQLite
+   ↓
+SQL
+   ↓
+SQLite
 ```
 
-This also makes database-level tests straightforward.
+This also makes the required SQL operations easy to inspect and test.
 
 ---
 
-## Why a service/repository split?
+## Why a Service / Repository Structure?
 
-The project separates responsibilities:
+The application is intentionally small, so a full enterprise architecture would add unnecessary complexity.
+
+The current separation provides a practical balance:
 
 ```text
 Routes
   ↓
-HTTP concerns
-
 Services
   ↓
-Validation + business rules
-
 Repositories
   ↓
-Database operations
-
-SQLite
-  ↓
-Persistence
+Database
 ```
 
-The goal is not architectural complexity. The goal is making each layer easy to reason about.
+Each layer has a clear responsibility without excessive abstraction.
 
 ---
 
-## Why native drag-and-drop?
+## Why Native Drag-and-Drop?
 
-Drag-and-drop was selected as the single stretch goal allowed by the assignment.
+The assignment allowed one stretch goal.
 
-No third-party drag-and-drop dependency was introduced.
+I selected native HTML5 drag-and-drop because it adds useful interaction without introducing another dependency.
 
-The application also retains the standard movement dropdown, giving users a simpler and more accessible fallback.
-
----
-
-# Scope Decisions
-
-The assignment explicitly places several capabilities out of scope.
-
-TaskFlow therefore does **not** include:
-
-- authentication
-- user accounts
-- multiple teams
-- realtime synchronization
-- file uploads
-- complex permissions
-- unnecessary state-management libraries
-- third-party drag-and-drop packages
-- unnecessary backend infrastructure
-
-This was intentional.
-
-The goal was to finish the required functionality reliably rather than increase feature count at the expense of stability.
+The existing dropdown movement control remains available as an accessible fallback.
 
 ---
 
-# Assumptions
+# Scope & Assumptions
 
-### Single default board
+## Single Default Board
 
 The application operates on Board `1`.
 
-The assignment requires a board and its columns but does not require multiple board selection or authentication.
+Authentication, multiple users, teams, and board switching were intentionally excluded because they were outside the assignment scope.
 
-### Priority
+## Task Movement
 
-Tasks support:
+A task belongs to one column at a time.
+
+Moving a task updates its `column_id` in SQLite.
+
+## Priority
+
+Supported priorities:
 
 ```text
 low
@@ -794,21 +788,47 @@ medium
 high
 ```
 
-### Task movement
+## Stretch Goal
 
-A task belongs to exactly one column at a time.
+Only one stretch goal was implemented:
 
-Moving a task updates its `column_id` in SQLite.
+> **Native HTML5 drag-and-drop**
 
-### Board naming
+The following were intentionally not implemented as stretch goals:
 
-The board name is persisted through:
+- Task title search
+- Task-count display
 
-```text
-PATCH /api/boards/:boardId
-```
+This keeps the implementation aligned with the assignment's explicit scope limit.
 
-and survives page reloads.
+---
+
+# Assignment Requirement Mapping
+
+The implementation maps directly to the requested evaluation areas.
+
+| Assignment Evaluation Area | TaskFlow |
+|---|:---:|
+| Working board | ✅ |
+| Create task | ✅ |
+| Edit task | ✅ |
+| Delete task | ✅ |
+| Move task | ✅ |
+| Persistent data | ✅ |
+| Relational database | ✅ |
+| Sensible schema | ✅ |
+| Primary keys | ✅ |
+| Foreign keys | ✅ |
+| Required constraints | ✅ |
+| Database-level queries | ✅ |
+| Priority filtering | ✅ |
+| Validation | ✅ |
+| Error handling | ✅ |
+| Database tests | ✅ |
+| API tests | ✅ |
+| Clean setup instructions | ✅ |
+| One stretch goal | Drag & Drop |
+| Live deployment | ✅ |
 
 ---
 
@@ -816,147 +836,183 @@ and survives page reloads.
 
 The current implementation intentionally stays within the assignment scope.
 
-For a production evolution, the next improvements would be:
+If TaskFlow were developed beyond the take-home assignment, I would consider:
 
-### 1. Managed PostgreSQL
+### Managed PostgreSQL
 
-Move from file-based SQLite storage to PostgreSQL for:
+For:
 
-- durable hosted storage
-- concurrent access
-- horizontal scaling
-- managed backups
+- Higher concurrency
+- Managed backups
+- Horizontal scaling
+- Production database operations
 
-### 2. End-to-End Testing
+### End-to-End Browser Testing
 
-Add browser-level tests covering:
+Add Playwright tests covering the complete workflow:
 
 ```text
-Create task
-    ↓
-Edit task
-    ↓
-Move task
-    ↓
-Filter task
-    ↓
-Rename board
-    ↓
+Create
+  ↓
+Edit
+  ↓
+Move
+  ↓
+Filter
+  ↓
+Rename
+  ↓
 Refresh
-    ↓
+  ↓
 Verify persistence
 ```
 
-### 3. Multiple Boards
+### Multiple Boards
 
-Introduce:
+Add board creation and board selection if the application evolves beyond a single-board workflow.
 
-- board selection
-- board creation
-- board deletion
-- board-specific routing
+### Authentication
 
-### 4. Authentication
+Introduce authentication and authorization if the application becomes multi-user.
 
-Add user accounts and authorization once multi-user functionality becomes necessary.
-
-These are intentionally future improvements rather than unfinished core requirements.
+These are future product extensions, not unfinished assignment requirements.
 
 ---
 
 # What I Learned
 
-### 1. SPA middleware ordering matters
+## Express SPA Middleware Ordering
 
-When Express serves a React SPA, the order of middleware is important.
+Serving a Vite-generated React application from Express requires careful middleware ordering.
 
-An overly broad fallback can accidentally turn an API `404` into an HTML response.
+API routes need to be handled before the SPA fallback.
 
-TaskFlow therefore keeps API handling ahead of the React fallback:
+Otherwise:
 
 ```text
-/api/* request
-     │
-     ▼
-API router
-     │
-     ├── valid → JSON
-     │
-     └── invalid → JSON 404
-     
-frontend request
-     │
-     ▼
-static assets
-     │
-     ▼
-index.html fallback
+/api/missing
 ```
 
-### 2. SQLite foreign keys require explicit enforcement
+could incorrectly receive:
 
-SQLite does not automatically enforce foreign keys in every configuration.
+```text
+index.html
+```
 
-The database initialization therefore explicitly enables:
+instead of a JSON `404`.
+
+The final middleware flow is therefore:
+
+```text
+API Routes
+   ↓
+API 404 Handler
+   ↓
+Static Assets
+   ↓
+React index.html Fallback
+```
+
+---
+
+## SQLite Foreign Keys
+
+SQLite does not automatically enforce foreign keys for every connection.
+
+The application explicitly enables them when creating the database connection.
 
 ```sql
 PRAGMA foreign_keys = ON;
 ```
 
-### 3. Repository isolation improves testability
-
-Injecting an in-memory SQLite database makes repository tests independent of the development database.
-
-That gives tests a predictable environment while still executing real SQL.
+This ensures invalid relationships cannot silently enter the database.
 
 ---
 
-# Assignment Requirement Mapping
+## Repository-Level Testing
 
-| Assignment Requirement | TaskFlow |
-|---|:---:|
-| Board with columns | ✓ |
-| Tasks with required fields | ✓ |
-| Create task | ✓ |
-| Edit task | ✓ |
-| Delete task | ✓ |
-| Move task | ✓ |
-| Backend persistence | ✓ |
-| Priority filtering | ✓ |
-| Backend validation | ✓ |
-| Error handling | ✓ |
-| Real relational database | ✓ |
-| Primary keys | ✓ |
-| Foreign keys | ✓ |
-| Required `NOT NULL` fields | ✓ |
-| Non-trivial SQL queries | ✓ |
-| Seed data | ✓ |
-| Backend tests | ✓ |
-| Database-layer test | ✓ |
-| Clean setup instructions | ✓ |
-| Single stretch goal | Native drag-and-drop |
-| Live deployment | ✓ |
+Keeping SQL operations inside repository modules makes it possible to inject isolated:
+
+```text
+:memory:
+```
+
+SQLite databases into tests.
+
+That allows database behavior to be tested without depending on the application's persistent database.
+
+---
+# Final Project Snapshot
+
+```text
+Frontend
+React + Vite
+      │
+      ▼
+REST API
+Node.js + Express
+      │
+      ▼
+Business Logic
+Services + Zod
+      │
+      ▼
+Persistence
+Repositories + SQL
+      │
+      ▼
+SQLite
+```
+
+### Verification
+
+```text
+✓ Core requirements implemented
+✓ One stretch goal implemented
+✓ Real database persistence
+✓ Backend validation
+✓ Structured error handling
+✓ 13/13 backend tests passing
+✓ Client lint passing
+✓ Production build passing
+✓ Live deployment available
+```
 
 ---
 
-# Repository
+# Repository & Demo
+
+### Source Code
+
+**https://github.com/Mohd-Ashad04/taskflow**
+
+### Live Application
+
+**https://taskflow-e5i9.onrender.com/**
+
+### Live API
+
+**https://taskflow-e5i9.onrender.com/api/boards/1**
+
+---
 
 <div align="center">
 
-### Built with a deliberately small stack and explicit engineering boundaries.
+### TaskFlow
 
-[![Open GitHub Repository](https://img.shields.io/badge/VIEW%20SOURCE%20CODE-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/Mohd-Ashad04/taskflow)
+**Built as a focused full-stack take-home assignment.**
 
-[![Launch TaskFlow](https://img.shields.io/badge/LAUNCH%20TASKFLOW-Live%20Demo-205742?style=for-the-badge&logo=render&logoColor=white)](https://taskflow-e5i9.onrender.com/)
+[Live Demo](https://taskflow-e5i9.onrender.com/) · [Source Code](https://github.com/Mohd-Ashad04/taskflow)
 
 </div>
-
 ---
 
-## Author
+<div align="center">
 
-**Mohd Ashad**
+## Built by Mohd Ashad
 
-Full-Stack / Backend Developer
+**Backend / Full-Stack Developer**
 
-[GitHub](https://github.com/Mohd-Ashad04)
+[GitHub](https://github.com/Mohd-Ashad04) ·
+
+</div>
