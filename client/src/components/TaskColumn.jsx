@@ -54,7 +54,7 @@ export function TaskColumn({ column, columns, onEdit, onDelete, onMove, disabled
     >
       <header className="task-column__header">
         <h2>{column.name}</h2>
-        <span aria-label={`${column.tasks.length} tasks`}>{column.tasks.length}</span>
+
       </header>
       <div className="task-list">
         {column.tasks.map((task) => (
